@@ -80,6 +80,12 @@
 
 <body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 p-4 md:p-8">
 
+    <div class="fixed top-4 right-4 z-50">
+        <button onclick="toggleTheme()" class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 rounded-full text-sm font-semibold text-slate-800 dark:text-slate-200 shadow hover:shadow-md border border-slate-200 dark:border-slate-700 transition-colors">
+            🌓 Toggle Theme
+        </button>
+    </div>
+
     <div class="max-w-6xl mx-auto space-y-8">
 
         <!-- Header -->
@@ -99,8 +105,8 @@
         </header>
 
         <!-- Q1: Data Structure Types -->
-        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
-            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">1. Classifications of Data Structures</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-amber-600 dark:text-amber-500 mb-4">1. Classifications of Data Structures</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <h3 class="font-bold text-lg mb-2 border-b pb-2">Primitive vs Non-Primitive</h3>
@@ -131,8 +137,8 @@
         </div>
 
         <!-- Q2: ADT, Dynamic DS, DMA -->
-        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
-            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">2. ADT, Dynamic Structures, and DMA</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-amber-600 dark:text-amber-500 mb-4">2. ADT, Dynamic Structures, and DMA</h2>
             <ul class="space-y-4">
                 <li><strong class="text-slate-900 dark:text-slate-100">Abstract Data Type (ADT):</strong> An ADT is a theoretical concept.
                     It defines the logical behavior of a data structure (what operations it can perform) without
@@ -149,8 +155,8 @@
 
         <!-- Q3 & Q4: Arrays & Sparse Matrix -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="question-card bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
-                <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">3. Arrays</h2>
+            <div class="question-card bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+                <h2 class="text-xl font-bold text-amber-600 dark:text-amber-500 mb-4">3. Arrays</h2>
                 <p><strong>Definition:</strong> An array is a linear collection of elements of the same data type stored
                     in contiguous memory locations.</p>
                 <p class="font-bold mt-4 mb-2">Disadvantages of Linear Arrays:</p>
@@ -163,8 +169,8 @@
                 </ul>
             </div>
 
-            <div class="question-card bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
-                <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">4. Sparse Matrix</h2>
+            <div class="question-card bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+                <h2 class="text-xl font-bold text-amber-600 dark:text-amber-500 mb-4">4. Sparse Matrix</h2>
                 <p><strong>Definition:</strong> A matrix in which the majority of the elements are zero.</p>
                 <p class="font-bold mt-4 mb-2">Limitations of normal storage:</p>
                 <p class="text-sm">Storing it as a standard 2D array wastes enormous amounts of memory on zeros and
@@ -177,8 +183,8 @@
         </div>
 
         <!-- Q5: Array Address Calculation -->
-        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
-            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">5. Address Calculation (Row-Major Order)</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-amber-600 dark:text-amber-500 mb-4">5. Address Calculation (Row-Major Order)</h2>
             <div class="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border dark:border-slate-700 border-slate-200 dark:border-slate-700 text-sm mb-6">
                 <p class="font-bold">General Formula (0-based indexing assumed for C/C++):</p>
                 <p>$$\text{Address}(A[i][j]) = \text{Base} + W \times [ (i \times N) + j ]$$</p>
@@ -205,8 +211,8 @@
         </div>
 
         <!-- Q6: Circular Linked List -->
-        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
-            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-2">6. Circular Linked List</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-amber-600 dark:text-amber-500 mb-2">6. Circular Linked List</h2>
             <p><strong>Definition:</strong> A variation of a linked list where the <code>next</code> pointer of the last
                 node points back to the first node, forming a closed circle instead of pointing to NULL.</p>
             <p class="mt-2"><strong>Primary Advantage:</strong> We can traverse the entire list starting from
@@ -215,8 +221,8 @@
         </div>
 
         <!-- Q7, Q8, Q9: STACKS -->
-        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
-            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">7, 8, 9. The Stack Data Structure</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-amber-600 dark:text-amber-500 mb-4">7, 8, 9. The Stack Data Structure</h2>
 
             <div class="flex flex-col md:flex-row gap-8 items-center mb-8 border-b pb-8 border-slate-100 dark:border-slate-700">
                 <div class="flex-1">
@@ -316,8 +322,8 @@
         </div>
 
         <!-- Q10, 11, 12, 13: QUEUES -->
-        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
-            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-6">10, 11, 12, 13. The Queue Data Structure</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-amber-600 dark:text-amber-500 mb-6">10, 11, 12, 13. The Queue Data Structure</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div>
@@ -443,8 +449,8 @@ int dequeue(int Q[], int *front, int *rear) {
         </div>
 
         <!-- Q14: Expressions -->
-        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
-            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">14. Expressions & Infix to Postfix Conversion</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-amber-600 dark:text-amber-500 mb-4">14. Expressions & Infix to Postfix Conversion</h2>
             <div class="flex flex-wrap gap-4 mb-6 text-sm">
                 <div class="flex-1 bg-slate-50 dark:bg-slate-900 p-3 rounded border dark:border-slate-700 border-slate-200 dark:border-slate-700">
                     <strong class="block mb-1">Infix</strong> Operator is between operands. <br><code>A + B</code>
@@ -581,8 +587,8 @@ int dequeue(int Q[], int *front, int *rear) {
         </div>
 
         <!-- Q15: Postfix Evaluation -->
-        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
-            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">15. Postfix Expression Evaluation Trace</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-amber-600 dark:text-amber-500 mb-4">15. Postfix Expression Evaluation Trace</h2>
             <p class="mb-4">Evaluate: <code class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">8 2 / 3 ^ 4 1 * +</code></p>
             <div class="overflow-x-auto">
                 <table class="w-full text-sm text-center border-collapse trace-table shadow-sm font-mono">
@@ -642,8 +648,8 @@ int dequeue(int Q[], int *front, int *rear) {
         </div>
 
         <!-- Q16, 17: Recursion vs Iteration & Fibonacci -->
-        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
-            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-6">16, 17. Recursion vs Iteration</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-amber-600 dark:text-amber-500 mb-6">16, 17. Recursion vs Iteration</h2>
 
             <table class="w-full text-sm text-left border-collapse trace-table shadow-sm mb-6">
                 <tr>
@@ -707,8 +713,8 @@ int dequeue(int Q[], int *front, int *rear) {
         </div>
 
         <!-- Q18, 19: Searching -->
-        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
-            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-6">18, 19. Linear and Binary Search</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-amber-600 dark:text-amber-500 mb-6">18, 19. Linear and Binary Search</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
                 <div>
