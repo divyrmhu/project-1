@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -42,10 +42,43 @@
         .trace-table tr:nth-child(even) {
             background-color: #f8fafc;
         }
+    
+        .dark .trace-table th { background-color: #1e293b; color: #cbd5e1; }
+        .dark .trace-table tr:nth-child(even) { background-color: #0f172a; }
+        .dark .trace-table td { border-color: #334155; }
+        .dark .trace-table th { border-color: #334155; }
+        
     </style>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {}
+            }
+        }
+    </script>
+    <script>
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark');
+        }
+
+        function toggleTheme() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+    </script>
+
 </head>
 
-<body class="bg-slate-50 text-slate-800 p-4 md:p-8">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 p-4 md:p-8">
 
     <div class="max-w-6xl mx-auto space-y-8">
 
@@ -53,7 +86,7 @@
         <header
             class="relative text-center py-10 bg-gradient-to-r from-amber-600 to-amber-700 text-white rounded-3xl shadow-lg">
             <a href="index.html"
-                class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg backdrop-blur-sm transition-all duration-200 text-sm font-semibold">
+                class="absolute top-4 left-4 inline-flex items-center gap-2 bg-white dark:bg-slate-800/20 hover:bg-white dark:bg-slate-800/30 text-white px-4 py-2 rounded-lg backdrop-blur-sm transition-all duration-200 text-sm font-semibold">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
@@ -66,18 +99,18 @@
         </header>
 
         <!-- Q1: Data Structure Types -->
-        <div class="question-card bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-xl font-bold text-teal-700 mb-4">1. Classifications of Data Structures</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">1. Classifications of Data Structures</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <h3 class="font-bold text-lg mb-2 border-b pb-2">Primitive vs Non-Primitive</h3>
                     <ul class="space-y-2 text-sm mt-3">
                         <li><strong>Primitive:</strong> Built directly into the programming language. They hold a single
-                            value. <br><span class="text-teal-600 font-mono bg-teal-50 px-1 rounded">Examples: int,
+                            value. <br><span class="text-teal-600 dark:text-teal-400 font-mono bg-teal-50 dark:bg-teal-900/30 px-1 rounded">Examples: int,
                                 char, float, bool</span></li>
                         <li><strong>Non-Primitive:</strong> Derived from primitive types. They can hold multiple values
                             either of the same type or different types. <br><span
-                                class="text-teal-600 font-mono bg-teal-50 px-1 rounded">Examples: Arrays, Linked Lists,
+                                class="text-teal-600 dark:text-teal-400 font-mono bg-teal-50 dark:bg-teal-900/30 px-1 rounded">Examples: Arrays, Linked Lists,
                                 Trees</span></li>
                     </ul>
                 </div>
@@ -86,11 +119,11 @@
                     <ul class="space-y-2 text-sm mt-3">
                         <li><strong>Linear:</strong> Elements are arranged sequentially. Each element is attached to its
                             previous and next adjacent elements. <br><span
-                                class="text-teal-600 font-mono bg-teal-50 px-1 rounded">Examples: Array, Stack, Queue,
+                                class="text-teal-600 dark:text-teal-400 font-mono bg-teal-50 dark:bg-teal-900/30 px-1 rounded">Examples: Array, Stack, Queue,
                                 Linked List</span></li>
                         <li><strong>Non-Linear:</strong> Elements are arranged hierarchically or interconnected
                             randomly. An element can connect to multiple other elements. <br><span
-                                class="text-teal-600 font-mono bg-teal-50 px-1 rounded">Examples: Trees, Graphs</span>
+                                class="text-teal-600 dark:text-teal-400 font-mono bg-teal-50 dark:bg-teal-900/30 px-1 rounded">Examples: Trees, Graphs</span>
                         </li>
                     </ul>
                 </div>
@@ -98,17 +131,17 @@
         </div>
 
         <!-- Q2: ADT, Dynamic DS, DMA -->
-        <div class="question-card bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-xl font-bold text-teal-700 mb-4">2. ADT, Dynamic Structures, and DMA</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">2. ADT, Dynamic Structures, and DMA</h2>
             <ul class="space-y-4">
-                <li><strong class="text-slate-900">Abstract Data Type (ADT):</strong> An ADT is a theoretical concept.
+                <li><strong class="text-slate-900 dark:text-slate-100">Abstract Data Type (ADT):</strong> An ADT is a theoretical concept.
                     It defines the logical behavior of a data structure (what operations it can perform) without
                     specifying <em>how</em> those operations will be implemented in code. <em>(e.g., Stack ADT defines
                         push/pop, but doesn't care if you build it with an array or a linked list).</em></li>
-                <li><strong class="text-slate-900">Dynamic Data Structures:</strong> Data structures whose memory size
+                <li><strong class="text-slate-900 dark:text-slate-100">Dynamic Data Structures:</strong> Data structures whose memory size
                     can expand or shrink during the execution (runtime) of the program. <em>(e.g., Linked Lists).</em>
                 </li>
-                <li><strong class="text-slate-900">Dynamic Memory Allocation (DMA):</strong> The process of assigning
+                <li><strong class="text-slate-900 dark:text-slate-100">Dynamic Memory Allocation (DMA):</strong> The process of assigning
                     memory space during program execution. In C, this is done using functions like
                     <code>malloc()</code>, <code>calloc()</code>, and freed using <code>free()</code>.</li>
             </ul>
@@ -116,8 +149,8 @@
 
         <!-- Q3 & Q4: Arrays & Sparse Matrix -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="question-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                <h2 class="text-xl font-bold text-teal-700 mb-4">3. Arrays</h2>
+            <div class="question-card bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
+                <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">3. Arrays</h2>
                 <p><strong>Definition:</strong> An array is a linear collection of elements of the same data type stored
                     in contiguous memory locations.</p>
                 <p class="font-bold mt-4 mb-2">Disadvantages of Linear Arrays:</p>
@@ -130,8 +163,8 @@
                 </ul>
             </div>
 
-            <div class="question-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                <h2 class="text-xl font-bold text-teal-700 mb-4">4. Sparse Matrix</h2>
+            <div class="question-card bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
+                <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">4. Sparse Matrix</h2>
                 <p><strong>Definition:</strong> A matrix in which the majority of the elements are zero.</p>
                 <p class="font-bold mt-4 mb-2">Limitations of normal storage:</p>
                 <p class="text-sm">Storing it as a standard 2D array wastes enormous amounts of memory on zeros and
@@ -144,9 +177,9 @@
         </div>
 
         <!-- Q5: Array Address Calculation -->
-        <div class="question-card bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-xl font-bold text-teal-700 mb-4">5. Address Calculation (Row-Major Order)</h2>
-            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-sm mb-6">
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">5. Address Calculation (Row-Major Order)</h2>
+            <div class="bg-slate-50 dark:bg-slate-900 p-4 rounded-xl border dark:border-slate-700 border-slate-200 dark:border-slate-700 text-sm mb-6">
                 <p class="font-bold">General Formula (0-based indexing assumed for C/C++):</p>
                 <p>$$\text{Address}(A[i][j]) = \text{Base} + W \times [ (i \times N) + j ]$$</p>
                 <p>Where $W$ = element size, $N$ = total columns, $i$ = row index, $j$ = col index.</p>
@@ -155,7 +188,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <h3 class="font-bold mb-2">Part A: Address of $A[2][1]$</h3>
-                    <p class="text-sm italic text-slate-500 mb-2">Note: Problem statement does not provide total columns
+                    <p class="text-sm italic text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-2">Note: Problem statement does not provide total columns
                         ($N$). Formula written algebraically.</p>
                     <p>$$\text{Loc} = 1000 + 2 \times (2 \times N + 1)$$</p>
                     <p>$$\text{Loc} = 1000 + 4N + 2$$</p>
@@ -172,8 +205,8 @@
         </div>
 
         <!-- Q6: Circular Linked List -->
-        <div class="question-card bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-xl font-bold text-teal-700 mb-2">6. Circular Linked List</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-2">6. Circular Linked List</h2>
             <p><strong>Definition:</strong> A variation of a linked list where the <code>next</code> pointer of the last
                 node points back to the first node, forming a closed circle instead of pointing to NULL.</p>
             <p class="mt-2"><strong>Primary Advantage:</strong> We can traverse the entire list starting from
@@ -182,10 +215,10 @@
         </div>
 
         <!-- Q7, Q8, Q9: STACKS -->
-        <div class="question-card bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-xl font-bold text-teal-700 mb-4">7, 8, 9. The Stack Data Structure</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">7, 8, 9. The Stack Data Structure</h2>
 
-            <div class="flex flex-col md:flex-row gap-8 items-center mb-8 border-b pb-8 border-slate-100">
+            <div class="flex flex-col md:flex-row gap-8 items-center mb-8 border-b pb-8 border-slate-100 dark:border-slate-700">
                 <div class="flex-1">
                     <p><strong>Definition:</strong> A linear data structure in which insertions and deletions are
                         strictly allowed at one end only, called the <strong>Top</strong>.</p>
@@ -211,7 +244,7 @@
                 </div>
 
                 <!-- Stack SVG Diagram -->
-                <div class="bg-slate-50 p-6 rounded-xl border border-slate-200 flex-shrink-0">
+                <div class="bg-slate-50 dark:bg-slate-900 p-6 rounded-xl border dark:border-slate-700 border-slate-200 dark:border-slate-700 flex-shrink-0">
                     <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                         <path d="M 50 20 L 50 160 L 150 160 L 150 20" fill="none" stroke="#0f766e" stroke-width="4" />
                         <rect x="55" y="120" width="90" height="35" fill="#99f6e4" stroke="#0f766e" stroke-width="2" />
@@ -252,7 +285,7 @@
 
             <!-- Algorithms Block (C Code) -->
             <h3 class="font-bold mb-4">C Functions for Push and Pop (Array Implementation)</h3>
-            <p class="text-sm mb-3 italic text-slate-500">*Note: We pass 'top' as a pointer (*top) so its value updates
+            <p class="text-sm mb-3 italic text-slate-500 dark:text-slate-400 dark:text-slate-500">*Note: We pass 'top' as a pointer (*top) so its value updates
                 globally.*</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-mono">
                 <div class="bg-[#1e293b] text-teal-300 p-4 rounded-lg overflow-x-auto shadow-inner">
@@ -283,32 +316,32 @@
         </div>
 
         <!-- Q10, 11, 12, 13: QUEUES -->
-        <div class="question-card bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-xl font-bold text-teal-700 mb-6">10, 11, 12, 13. The Queue Data Structure</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-6">10, 11, 12, 13. The Queue Data Structure</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div>
                     <h3 class="font-bold mb-2">Stack vs Queue</h3>
                     <table class="w-full text-sm text-left border-collapse trace-table shadow-sm">
                         <tr>
-                            <th class="border p-2">Feature</th>
-                            <th class="border p-2">Stack</th>
-                            <th class="border p-2">Queue</th>
+                            <th class="border dark:border-slate-700 p-2">Feature</th>
+                            <th class="border dark:border-slate-700 p-2">Stack</th>
+                            <th class="border dark:border-slate-700 p-2">Queue</th>
                         </tr>
                         <tr>
-                            <td class="border p-2">Principle</td>
-                            <td class="border p-2">LIFO</td>
-                            <td class="border p-2">FIFO</td>
+                            <td class="border dark:border-slate-700 p-2">Principle</td>
+                            <td class="border dark:border-slate-700 p-2">LIFO</td>
+                            <td class="border dark:border-slate-700 p-2">FIFO</td>
                         </tr>
                         <tr>
-                            <td class="border p-2">Ends used</td>
-                            <td class="border p-2">One end (Top)</td>
-                            <td class="border p-2">Two ends (Front, Rear)</td>
+                            <td class="border dark:border-slate-700 p-2">Ends used</td>
+                            <td class="border dark:border-slate-700 p-2">One end (Top)</td>
+                            <td class="border dark:border-slate-700 p-2">Two ends (Front, Rear)</td>
                         </tr>
                         <tr>
-                            <td class="border p-2">Operations</td>
-                            <td class="border p-2">Push / Pop</td>
-                            <td class="border p-2">Enqueue / Dequeue</td>
+                            <td class="border dark:border-slate-700 p-2">Operations</td>
+                            <td class="border dark:border-slate-700 p-2">Push / Pop</td>
+                            <td class="border dark:border-slate-700 p-2">Enqueue / Dequeue</td>
                         </tr>
                     </table>
 
@@ -325,8 +358,8 @@
                     <h3 class="font-bold mb-2">Circular Queue & Advantages</h3>
                     <p class="text-sm mb-2"><strong>Definition:</strong> A queue where the last position is connected
                         back to the first position, forming a circle. (<code>Rear = (Rear + 1) % MAX</code>).</p>
-                    <p class="text-sm font-semibold text-teal-800 bg-teal-50 p-3 rounded border border-teal-100">
-                        Advantage over Linear Queue: <br><span class="font-normal text-slate-700">In a linear queue, if
+                    <p class="text-sm font-semibold text-teal-800 dark:text-teal-200 bg-teal-50 dark:bg-teal-900/30 p-3 rounded border dark:border-slate-700 border-teal-100 dark:border-teal-800">
+                        Advantage over Linear Queue: <br><span class="font-normal text-slate-700 dark:text-slate-300">In a linear queue, if
                             the Rear reaches the maximum size, we cannot insert new elements even if the Front has moved
                             forward creating empty spaces. A Circular Queue reuses these empty spaces
                             efficiently.</span></p>
@@ -363,46 +396,46 @@ int dequeue(int Q[], int *front, int *rear) {
                     <h3 class="font-bold mb-2">Queue Operations Trace (Size = 5)</h3>
                     <table class="w-full text-sm text-center border-collapse trace-table shadow-sm">
                         <tr>
-                            <th class="border p-2">Operation</th>
-                            <th class="border p-2 text-blue-600">Front</th>
-                            <th class="border p-2 text-red-600">Rear</th>
-                            <th class="border p-2">Queue State [0..4]</th>
+                            <th class="border dark:border-slate-700 p-2">Operation</th>
+                            <th class="border dark:border-slate-700 p-2 text-blue-600 dark:text-blue-400">Front</th>
+                            <th class="border dark:border-slate-700 p-2 text-red-600">Rear</th>
+                            <th class="border dark:border-slate-700 p-2">Queue State [0..4]</th>
                         </tr>
                         <tr>
-                            <td class="border p-2 italic">Initial</td>
-                            <td class="border p-2">-1</td>
-                            <td class="border p-2">-1</td>
-                            <td class="border p-2 font-mono text-slate-400">[ - , - , - , - , - ]</td>
+                            <td class="border dark:border-slate-700 p-2 italic">Initial</td>
+                            <td class="border dark:border-slate-700 p-2">-1</td>
+                            <td class="border dark:border-slate-700 p-2">-1</td>
+                            <td class="border dark:border-slate-700 p-2 font-mono text-slate-400 dark:text-slate-500">[ - , - , - , - , - ]</td>
                         </tr>
                         <tr>
-                            <td class="border p-2">En(10)</td>
-                            <td class="border p-2">0</td>
-                            <td class="border p-2">0</td>
-                            <td class="border p-2 font-mono">[ 10, - , - , - , - ]</td>
+                            <td class="border dark:border-slate-700 p-2">En(10)</td>
+                            <td class="border dark:border-slate-700 p-2">0</td>
+                            <td class="border dark:border-slate-700 p-2">0</td>
+                            <td class="border dark:border-slate-700 p-2 font-mono">[ 10, - , - , - , - ]</td>
                         </tr>
                         <tr>
-                            <td class="border p-2">En(20)</td>
-                            <td class="border p-2">0</td>
-                            <td class="border p-2">1</td>
-                            <td class="border p-2 font-mono">[ 10, 20, - , - , - ]</td>
+                            <td class="border dark:border-slate-700 p-2">En(20)</td>
+                            <td class="border dark:border-slate-700 p-2">0</td>
+                            <td class="border dark:border-slate-700 p-2">1</td>
+                            <td class="border dark:border-slate-700 p-2 font-mono">[ 10, 20, - , - , - ]</td>
                         </tr>
                         <tr>
-                            <td class="border p-2">En(30)</td>
-                            <td class="border p-2">0</td>
-                            <td class="border p-2">2</td>
-                            <td class="border p-2 font-mono">[ 10, 20, 30, - , - ]</td>
+                            <td class="border dark:border-slate-700 p-2">En(30)</td>
+                            <td class="border dark:border-slate-700 p-2">0</td>
+                            <td class="border dark:border-slate-700 p-2">2</td>
+                            <td class="border dark:border-slate-700 p-2 font-mono">[ 10, 20, 30, - , - ]</td>
                         </tr>
-                        <tr class="bg-amber-50">
-                            <td class="border p-2 font-bold">De() -> 10</td>
-                            <td class="border p-2 font-bold">1</td>
-                            <td class="border p-2">2</td>
-                            <td class="border p-2 font-mono text-slate-500">[ <del>10</del>, 20, 30, - , - ]</td>
+                        <tr class="bg-amber-50 dark:bg-amber-900/30">
+                            <td class="border dark:border-slate-700 p-2 font-bold">De() -> 10</td>
+                            <td class="border dark:border-slate-700 p-2 font-bold">1</td>
+                            <td class="border dark:border-slate-700 p-2">2</td>
+                            <td class="border dark:border-slate-700 p-2 font-mono text-slate-500 dark:text-slate-400 dark:text-slate-500">[ <del>10</del>, 20, 30, - , - ]</td>
                         </tr>
                         <tr>
-                            <td class="border p-2">En(40)</td>
-                            <td class="border p-2">1</td>
-                            <td class="border p-2">3</td>
-                            <td class="border p-2 font-mono">[ <del>10</del>, 20, 30, 40, - ]</td>
+                            <td class="border dark:border-slate-700 p-2">En(40)</td>
+                            <td class="border dark:border-slate-700 p-2">1</td>
+                            <td class="border dark:border-slate-700 p-2">3</td>
+                            <td class="border dark:border-slate-700 p-2 font-mono">[ <del>10</del>, 20, 30, 40, - ]</td>
                         </tr>
                     </table>
                 </div>
@@ -410,198 +443,198 @@ int dequeue(int Q[], int *front, int *rear) {
         </div>
 
         <!-- Q14: Expressions -->
-        <div class="question-card bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-xl font-bold text-teal-700 mb-4">14. Expressions & Infix to Postfix Conversion</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">14. Expressions & Infix to Postfix Conversion</h2>
             <div class="flex flex-wrap gap-4 mb-6 text-sm">
-                <div class="flex-1 bg-slate-50 p-3 rounded border border-slate-200">
+                <div class="flex-1 bg-slate-50 dark:bg-slate-900 p-3 rounded border dark:border-slate-700 border-slate-200 dark:border-slate-700">
                     <strong class="block mb-1">Infix</strong> Operator is between operands. <br><code>A + B</code>
                 </div>
-                <div class="flex-1 bg-slate-50 p-3 rounded border border-slate-200">
+                <div class="flex-1 bg-slate-50 dark:bg-slate-900 p-3 rounded border dark:border-slate-700 border-slate-200 dark:border-slate-700">
                     <strong class="block mb-1">Prefix</strong> Operator is before operands. <br><code>+ A B</code>
                 </div>
-                <div class="flex-1 bg-slate-50 p-3 rounded border border-slate-200">
+                <div class="flex-1 bg-slate-50 dark:bg-slate-900 p-3 rounded border dark:border-slate-700 border-slate-200 dark:border-slate-700">
                     <strong class="block mb-1">Postfix</strong> Operator is after operands. <br><code>A B +</code>
                 </div>
             </div>
 
             <h3 class="font-bold mb-2">Simple Conversion:</h3>
-            <p class="font-mono bg-slate-100 p-2 rounded mb-6 inline-block">Infix: (a+b)*c+d/e &nbsp;&rarr;&nbsp;
+            <p class="font-mono bg-slate-100 dark:bg-slate-700 p-2 rounded mb-6 inline-block">Infix: (a+b)*c+d/e &nbsp;&rarr;&nbsp;
                 Postfix: ab+c*de/+</p>
 
             <h3 class="font-bold mb-2">Complex Conversion Trace using Stack:</h3>
-            <p class="mb-2 font-mono bg-teal-50 text-teal-900 p-2 rounded border border-teal-200 inline-block">
+            <p class="mb-2 font-mono bg-teal-50 dark:bg-teal-900/30 text-teal-900 p-2 rounded border dark:border-slate-700 border-teal-200 dark:border-teal-700 inline-block">
                 a+(b*c-(d/e^f)*g)*h</p>
 
             <div class="overflow-x-auto mt-4">
                 <table class="w-full text-sm text-left border-collapse trace-table shadow-sm font-mono">
                     <tr>
-                        <th class="border p-2">Symbol</th>
-                        <th class="border p-2">Stack State</th>
-                        <th class="border p-2 text-teal-700">Postfix Expression (Output)</th>
+                        <th class="border dark:border-slate-700 p-2">Symbol</th>
+                        <th class="border dark:border-slate-700 p-2">Stack State</th>
+                        <th class="border dark:border-slate-700 p-2 text-teal-700 dark:text-teal-300">Postfix Expression (Output)</th>
                     </tr>
                     <tr>
-                        <td class="border p-2">a</td>
-                        <td class="border p-2"></td>
-                        <td class="border p-2">a</td>
+                        <td class="border dark:border-slate-700 p-2">a</td>
+                        <td class="border dark:border-slate-700 p-2"></td>
+                        <td class="border dark:border-slate-700 p-2">a</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">+</td>
-                        <td class="border p-2">+</td>
-                        <td class="border p-2">a</td>
+                        <td class="border dark:border-slate-700 p-2">+</td>
+                        <td class="border dark:border-slate-700 p-2">+</td>
+                        <td class="border dark:border-slate-700 p-2">a</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">(</td>
-                        <td class="border p-2">+ (</td>
-                        <td class="border p-2">a</td>
+                        <td class="border dark:border-slate-700 p-2">(</td>
+                        <td class="border dark:border-slate-700 p-2">+ (</td>
+                        <td class="border dark:border-slate-700 p-2">a</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">b</td>
-                        <td class="border p-2">+ (</td>
-                        <td class="border p-2">ab</td>
+                        <td class="border dark:border-slate-700 p-2">b</td>
+                        <td class="border dark:border-slate-700 p-2">+ (</td>
+                        <td class="border dark:border-slate-700 p-2">ab</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">*</td>
-                        <td class="border p-2">+ ( *</td>
-                        <td class="border p-2">ab</td>
+                        <td class="border dark:border-slate-700 p-2">*</td>
+                        <td class="border dark:border-slate-700 p-2">+ ( *</td>
+                        <td class="border dark:border-slate-700 p-2">ab</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">c</td>
-                        <td class="border p-2">+ ( *</td>
-                        <td class="border p-2">abc</td>
+                        <td class="border dark:border-slate-700 p-2">c</td>
+                        <td class="border dark:border-slate-700 p-2">+ ( *</td>
+                        <td class="border dark:border-slate-700 p-2">abc</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">-</td>
-                        <td class="border p-2">+ ( -</td>
-                        <td class="border p-2">abc* <span class="text-xs text-slate-400 font-sans">(popped * as it has
+                        <td class="border dark:border-slate-700 p-2">-</td>
+                        <td class="border dark:border-slate-700 p-2">+ ( -</td>
+                        <td class="border dark:border-slate-700 p-2">abc* <span class="text-xs text-slate-400 dark:text-slate-500 font-sans">(popped * as it has
                                 higher precedence)</span></td>
                     </tr>
                     <tr>
-                        <td class="border p-2">(</td>
-                        <td class="border p-2">+ ( - (</td>
-                        <td class="border p-2">abc*</td>
+                        <td class="border dark:border-slate-700 p-2">(</td>
+                        <td class="border dark:border-slate-700 p-2">+ ( - (</td>
+                        <td class="border dark:border-slate-700 p-2">abc*</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">d</td>
-                        <td class="border p-2">+ ( - (</td>
-                        <td class="border p-2">abc*d</td>
+                        <td class="border dark:border-slate-700 p-2">d</td>
+                        <td class="border dark:border-slate-700 p-2">+ ( - (</td>
+                        <td class="border dark:border-slate-700 p-2">abc*d</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">/</td>
-                        <td class="border p-2">+ ( - ( /</td>
-                        <td class="border p-2">abc*d</td>
+                        <td class="border dark:border-slate-700 p-2">/</td>
+                        <td class="border dark:border-slate-700 p-2">+ ( - ( /</td>
+                        <td class="border dark:border-slate-700 p-2">abc*d</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">e</td>
-                        <td class="border p-2">+ ( - ( /</td>
-                        <td class="border p-2">abc*de</td>
+                        <td class="border dark:border-slate-700 p-2">e</td>
+                        <td class="border dark:border-slate-700 p-2">+ ( - ( /</td>
+                        <td class="border dark:border-slate-700 p-2">abc*de</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">^</td>
-                        <td class="border p-2">+ ( - ( / ^</td>
-                        <td class="border p-2">abc*de</td>
+                        <td class="border dark:border-slate-700 p-2">^</td>
+                        <td class="border dark:border-slate-700 p-2">+ ( - ( / ^</td>
+                        <td class="border dark:border-slate-700 p-2">abc*de</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">f</td>
-                        <td class="border p-2">+ ( - ( / ^</td>
-                        <td class="border p-2">abc*def</td>
+                        <td class="border dark:border-slate-700 p-2">f</td>
+                        <td class="border dark:border-slate-700 p-2">+ ( - ( / ^</td>
+                        <td class="border dark:border-slate-700 p-2">abc*def</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">)</td>
-                        <td class="border p-2">+ ( -</td>
-                        <td class="border p-2">abc*def^/ <span class="text-xs text-slate-400 font-sans">(popped until
+                        <td class="border dark:border-slate-700 p-2">)</td>
+                        <td class="border dark:border-slate-700 p-2">+ ( -</td>
+                        <td class="border dark:border-slate-700 p-2">abc*def^/ <span class="text-xs text-slate-400 dark:text-slate-500 font-sans">(popped until
                                 '(')</span></td>
                     </tr>
                     <tr>
-                        <td class="border p-2">*</td>
-                        <td class="border p-2">+ ( - *</td>
-                        <td class="border p-2">abc*def^/</td>
+                        <td class="border dark:border-slate-700 p-2">*</td>
+                        <td class="border dark:border-slate-700 p-2">+ ( - *</td>
+                        <td class="border dark:border-slate-700 p-2">abc*def^/</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">g</td>
-                        <td class="border p-2">+ ( - *</td>
-                        <td class="border p-2">abc*def^/g</td>
+                        <td class="border dark:border-slate-700 p-2">g</td>
+                        <td class="border dark:border-slate-700 p-2">+ ( - *</td>
+                        <td class="border dark:border-slate-700 p-2">abc*def^/g</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">)</td>
-                        <td class="border p-2">+ </td>
-                        <td class="border p-2">abc*def^/g*- <span class="text-xs text-slate-400 font-sans">(popped until
+                        <td class="border dark:border-slate-700 p-2">)</td>
+                        <td class="border dark:border-slate-700 p-2">+ </td>
+                        <td class="border dark:border-slate-700 p-2">abc*def^/g*- <span class="text-xs text-slate-400 dark:text-slate-500 font-sans">(popped until
                                 '(')</span></td>
                     </tr>
                     <tr>
-                        <td class="border p-2">*</td>
-                        <td class="border p-2">+ *</td>
-                        <td class="border p-2">abc*def^/g*-</td>
+                        <td class="border dark:border-slate-700 p-2">*</td>
+                        <td class="border dark:border-slate-700 p-2">+ *</td>
+                        <td class="border dark:border-slate-700 p-2">abc*def^/g*-</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">h</td>
-                        <td class="border p-2">+ *</td>
-                        <td class="border p-2">abc*def^/g*-h</td>
+                        <td class="border dark:border-slate-700 p-2">h</td>
+                        <td class="border dark:border-slate-700 p-2">+ *</td>
+                        <td class="border dark:border-slate-700 p-2">abc*def^/g*-h</td>
                     </tr>
                     <tr>
-                        <td class="border p-2 font-bold italic">End</td>
-                        <td class="border p-2"></td>
-                        <td class="border p-2 font-bold text-teal-800 bg-teal-50">abc*def^/g*-h*+ <span
-                                class="text-xs text-slate-400 font-sans">(pop remaining)</span></td>
+                        <td class="border dark:border-slate-700 p-2 font-bold italic">End</td>
+                        <td class="border dark:border-slate-700 p-2"></td>
+                        <td class="border dark:border-slate-700 p-2 font-bold text-teal-800 dark:text-teal-200 bg-teal-50 dark:bg-teal-900/30">abc*def^/g*-h*+ <span
+                                class="text-xs text-slate-400 dark:text-slate-500 font-sans">(pop remaining)</span></td>
                     </tr>
                 </table>
             </div>
         </div>
 
         <!-- Q15: Postfix Evaluation -->
-        <div class="question-card bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-xl font-bold text-teal-700 mb-4">15. Postfix Expression Evaluation Trace</h2>
-            <p class="mb-4">Evaluate: <code class="bg-slate-100 px-2 py-1 rounded">8 2 / 3 ^ 4 1 * +</code></p>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-4">15. Postfix Expression Evaluation Trace</h2>
+            <p class="mb-4">Evaluate: <code class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">8 2 / 3 ^ 4 1 * +</code></p>
             <div class="overflow-x-auto">
                 <table class="w-full text-sm text-center border-collapse trace-table shadow-sm font-mono">
                     <tr>
-                        <th class="border p-2">Token</th>
-                        <th class="border p-2 text-left">Action</th>
-                        <th class="border p-2">Stack State [Bottom &rarr; Top]</th>
+                        <th class="border dark:border-slate-700 p-2">Token</th>
+                        <th class="border dark:border-slate-700 p-2 text-left">Action</th>
+                        <th class="border dark:border-slate-700 p-2">Stack State [Bottom &rarr; Top]</th>
                     </tr>
                     <tr>
-                        <td class="border p-2">8</td>
-                        <td class="border p-2 text-left">Push 8</td>
-                        <td class="border p-2">[ 8 ]</td>
+                        <td class="border dark:border-slate-700 p-2">8</td>
+                        <td class="border dark:border-slate-700 p-2 text-left">Push 8</td>
+                        <td class="border dark:border-slate-700 p-2">[ 8 ]</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">2</td>
-                        <td class="border p-2 text-left">Push 2</td>
-                        <td class="border p-2">[ 8, 2 ]</td>
+                        <td class="border dark:border-slate-700 p-2">2</td>
+                        <td class="border dark:border-slate-700 p-2 text-left">Push 2</td>
+                        <td class="border dark:border-slate-700 p-2">[ 8, 2 ]</td>
                     </tr>
                     <tr>
-                        <td class="border p-2 font-bold text-blue-600">/</td>
-                        <td class="border p-2 text-left">Pop 2, Pop 8 &rarr; Calculate (8 / 2) = 4. Push 4.</td>
-                        <td class="border p-2">[ 4 ]</td>
+                        <td class="border dark:border-slate-700 p-2 font-bold text-blue-600 dark:text-blue-400">/</td>
+                        <td class="border dark:border-slate-700 p-2 text-left">Pop 2, Pop 8 &rarr; Calculate (8 / 2) = 4. Push 4.</td>
+                        <td class="border dark:border-slate-700 p-2">[ 4 ]</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">3</td>
-                        <td class="border p-2 text-left">Push 3</td>
-                        <td class="border p-2">[ 4, 3 ]</td>
+                        <td class="border dark:border-slate-700 p-2">3</td>
+                        <td class="border dark:border-slate-700 p-2 text-left">Push 3</td>
+                        <td class="border dark:border-slate-700 p-2">[ 4, 3 ]</td>
                     </tr>
                     <tr>
-                        <td class="border p-2 font-bold text-blue-600">^</td>
-                        <td class="border p-2 text-left">Pop 3, Pop 4 &rarr; Calculate (4 ^ 3) = 64. Push 64.</td>
-                        <td class="border p-2">[ 64 ]</td>
+                        <td class="border dark:border-slate-700 p-2 font-bold text-blue-600 dark:text-blue-400">^</td>
+                        <td class="border dark:border-slate-700 p-2 text-left">Pop 3, Pop 4 &rarr; Calculate (4 ^ 3) = 64. Push 64.</td>
+                        <td class="border dark:border-slate-700 p-2">[ 64 ]</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">4</td>
-                        <td class="border p-2 text-left">Push 4</td>
-                        <td class="border p-2">[ 64, 4 ]</td>
+                        <td class="border dark:border-slate-700 p-2">4</td>
+                        <td class="border dark:border-slate-700 p-2 text-left">Push 4</td>
+                        <td class="border dark:border-slate-700 p-2">[ 64, 4 ]</td>
                     </tr>
                     <tr>
-                        <td class="border p-2">1</td>
-                        <td class="border p-2 text-left">Push 1</td>
-                        <td class="border p-2">[ 64, 4, 1 ]</td>
+                        <td class="border dark:border-slate-700 p-2">1</td>
+                        <td class="border dark:border-slate-700 p-2 text-left">Push 1</td>
+                        <td class="border dark:border-slate-700 p-2">[ 64, 4, 1 ]</td>
                     </tr>
                     <tr>
-                        <td class="border p-2 font-bold text-blue-600">*</td>
-                        <td class="border p-2 text-left">Pop 1, Pop 4 &rarr; Calculate (4 * 1) = 4. Push 4.</td>
-                        <td class="border p-2">[ 64, 4 ]</td>
+                        <td class="border dark:border-slate-700 p-2 font-bold text-blue-600 dark:text-blue-400">*</td>
+                        <td class="border dark:border-slate-700 p-2 text-left">Pop 1, Pop 4 &rarr; Calculate (4 * 1) = 4. Push 4.</td>
+                        <td class="border dark:border-slate-700 p-2">[ 64, 4 ]</td>
                     </tr>
                     <tr>
-                        <td class="border p-2 font-bold text-blue-600">+</td>
-                        <td class="border p-2 text-left">Pop 4, Pop 64 &rarr; Calculate (64 + 4) = 68. Push 68.</td>
-                        <td class="border p-2 font-bold text-teal-700">[ 68 ]</td>
+                        <td class="border dark:border-slate-700 p-2 font-bold text-blue-600 dark:text-blue-400">+</td>
+                        <td class="border dark:border-slate-700 p-2 text-left">Pop 4, Pop 64 &rarr; Calculate (64 + 4) = 68. Push 68.</td>
+                        <td class="border dark:border-slate-700 p-2 font-bold text-teal-700 dark:text-teal-300">[ 68 ]</td>
                     </tr>
                 </table>
             </div>
@@ -609,29 +642,29 @@ int dequeue(int Q[], int *front, int *rear) {
         </div>
 
         <!-- Q16, 17: Recursion vs Iteration & Fibonacci -->
-        <div class="question-card bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-xl font-bold text-teal-700 mb-6">16, 17. Recursion vs Iteration</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-6">16, 17. Recursion vs Iteration</h2>
 
             <table class="w-full text-sm text-left border-collapse trace-table shadow-sm mb-6">
                 <tr>
-                    <th class="border p-2">Basis</th>
-                    <th class="border p-2">Recursion</th>
-                    <th class="border p-2">Iteration</th>
+                    <th class="border dark:border-slate-700 p-2">Basis</th>
+                    <th class="border dark:border-slate-700 p-2">Recursion</th>
+                    <th class="border dark:border-slate-700 p-2">Iteration</th>
                 </tr>
                 <tr>
-                    <td class="border p-2 font-bold">Definition</td>
-                    <td class="border p-2">Function calls itself continuously until a base case is met.</td>
-                    <td class="border p-2">A set of instructions repeatedly executed via loops (for/while).</td>
+                    <td class="border dark:border-slate-700 p-2 font-bold">Definition</td>
+                    <td class="border dark:border-slate-700 p-2">Function calls itself continuously until a base case is met.</td>
+                    <td class="border dark:border-slate-700 p-2">A set of instructions repeatedly executed via loops (for/while).</td>
                 </tr>
                 <tr>
-                    <td class="border p-2 font-bold">Memory</td>
-                    <td class="border p-2">High memory overhead (uses system Call Stack).</td>
-                    <td class="border p-2">Low memory overhead ($O(1)$ extra space).</td>
+                    <td class="border dark:border-slate-700 p-2 font-bold">Memory</td>
+                    <td class="border dark:border-slate-700 p-2">High memory overhead (uses system Call Stack).</td>
+                    <td class="border dark:border-slate-700 p-2">Low memory overhead ($O(1)$ extra space).</td>
                 </tr>
                 <tr>
-                    <td class="border p-2 font-bold">Speed</td>
-                    <td class="border p-2">Slower due to overhead of function calls.</td>
-                    <td class="border p-2">Faster execution.</td>
+                    <td class="border dark:border-slate-700 p-2 font-bold">Speed</td>
+                    <td class="border dark:border-slate-700 p-2">Slower due to overhead of function calls.</td>
+                    <td class="border dark:border-slate-700 p-2">Faster execution.</td>
                 </tr>
             </table>
 
@@ -674,8 +707,8 @@ int dequeue(int Q[], int *front, int *rear) {
         </div>
 
         <!-- Q18, 19: Searching -->
-        <div class="question-card bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-xl font-bold text-teal-700 mb-6">18, 19. Linear and Binary Search</h2>
+        <div class="question-card bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-sm border dark:border-slate-700 border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-bold text-teal-700 dark:text-teal-300 mb-6">18, 19. Linear and Binary Search</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
                 <div>
@@ -744,7 +777,7 @@ int dequeue(int Q[], int *front, int *rear) {
             </div>
         </div>
 
-        <footer class="text-center py-6 text-slate-500 text-sm">
+        <footer class="text-center py-6 text-slate-500 dark:text-slate-400 dark:text-slate-500 text-sm">
             Interactive Data Structures Study Module. Designed with precision.
         </footer>
     </div>
